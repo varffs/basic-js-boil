@@ -2,7 +2,9 @@
 .DS_Store
 
 # Compiled build
-build/*/*
+build/js/*
+build/css/*
+build/img/*
 
 # Dependency directory
 node_modules
