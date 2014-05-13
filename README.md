@@ -10,6 +10,7 @@ Boilerplate for basic js lead 1page projects
 - lib.js: files concated from 'src/libs/' folder [which you need to make]
 - images in 'src/images/' [which you need to make] optimized
 - main.js linted and minified
+- fonts in 'src/images/' [which you need to make] fontfaced
 
 ### setup
 

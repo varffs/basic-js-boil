@@ -20,7 +20,8 @@ var gulp = require('gulp'),
 		js: 'build/js/',
 		docs: 'build/',
 		css: 'build/css/',
-		images: 'build/img/'
+		images: 'build/img/',
+		fonts: 'build/fonts/'
 	};
 
 /* SERVER */
@@ -78,8 +79,19 @@ gulp.task('lib', function() {
 /* IMAGES */
 gulp.task('images', function () {
     return gulp.src('src/images/*.*')
+    	.pipe(cache('images'))
         .pipe(imagemin())
         .pipe(gulp.dest(destinations.images));
+});
+
+/* FONTS */
+gulp.task('fonts', function () {
+    return gulp.src('src/fonts/*.*')
+    	.pipe(cache('fonts'))
+        .pipe(gulp-fontgen({
+        	dest: destinations.fonts
+		}))
+		.pipe(notify({ message: 'Fonts task complete' }));
 });
 
 /* WATCH */
@@ -88,10 +100,11 @@ gulp.task('watch', function() {
   gulp.watch('src/styles/main.styl', ['styles']);
   gulp.watch('src/scripts/main.js', ['script']);
   gulp.watch('src/images/*.*', ['images']);
+  gulp.watch('src/fonts/*.*', ['fonts']);
   gulp.watch(['./build/*.html'], ['html']);
 
 });
 
 /*DEFAULT TASK*/
 gulp.task('default', ['connect', 'watch']);
-gulp.task('init', ['styles', 'script', 'lib', 'images']);
+gulp.task('init', ['styles', 'script', 'lib', 'images', 'fonts']);

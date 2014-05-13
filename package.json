@@ -2,6 +2,10 @@
   "name": "basic-js-boil",
   "version": "0.1.0",
   "description": "a boilerplate for v basic 1page projects",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/varffs/basic-js-boil.git"
+  },
   "devDependencies": {
     "gulp": "~3.6.2",
     "gulp-connect": "^2.0.5",
@@ -17,6 +21,7 @@
     "gulp-jshint": "~1.5.5",
     "gulp-cache": "~0.1.9",
     "gulp-imagemin": "~0.5.0",
-    "gulp-stylus": "~1.0.0"
+    "gulp-stylus": "~1.0.0",
+    "gulp-fontgen": "~0.1.3"
   }
 }
