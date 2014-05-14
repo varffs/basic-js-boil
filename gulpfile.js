@@ -1,5 +1,11 @@
 var gulp = require('gulp'),
+
 	connect = require('gulp-connect'),
+	cache = require('gulp-cached'),
+    rename = require('gulp-rename'),
+    clean = require('gulp-clean'),
+    concat = require('gulp-concat'),
+    notify = require('gulp-notify'),
 
 	stylus = require('gulp-stylus');
     autoprefixer = require('gulp-autoprefixer'),
@@ -9,12 +15,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
 
     imagemin = require('gulp-imagemin'),
-    cache = require('gulp-cache'),
 
-    rename = require('gulp-rename'),
-    clean = require('gulp-clean'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
+	fontgen = require("gulp-fontgen");
 
 	destinations = {
 		js: 'build/js/',
@@ -35,7 +37,8 @@ gulp.task('connect', function() {
 
 gulp.task('html', function () {
   gulp.src('./build/*.html')
-    .pipe(connect.reload());
+    .pipe(connect.reload())
+    .pipe(notify({ message: 'HTML task complete' }));
 });
 
 /* STYLES */
@@ -81,14 +84,15 @@ gulp.task('images', function () {
     return gulp.src('src/images/*.*')
     	.pipe(cache('images'))
         .pipe(imagemin())
-        .pipe(gulp.dest(destinations.images));
+        .pipe(gulp.dest(destinations.images))
+		.pipe(notify({ message: 'Images task complete' }));
 });
 
 /* FONTS */
 gulp.task('fonts', function () {
     return gulp.src('src/fonts/*.*')
     	.pipe(cache('fonts'))
-        .pipe(gulp-fontgen({
+        .pipe(fontgen({
         	dest: destinations.fonts
 		}))
 		.pipe(notify({ message: 'Fonts task complete' }));
@@ -107,4 +111,3 @@ gulp.task('watch', function() {
 
 /*DEFAULT TASK*/
 gulp.task('default', ['connect', 'watch']);
-gulp.task('init', ['styles', 'script', 'lib', 'images', 'fonts']);

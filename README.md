@@ -10,15 +10,11 @@ Boilerplate for basic js lead 1page projects
 - lib.js: files concated from 'src/libs/' folder [which you need to make]
 - images in 'src/images/' [which you need to make] optimized
 - main.js linted and minified
-- fonts in 'src/images/' [which you need to make] fontfaced
+- fonts in 'src/fonts/' [which you need to make] fontfaced [tho this depends on your local installs of quite a few things. so watch the errors if it doesn't work]
 
 ### setup
 
 > npm install
-
-then
-
-> gulp init
 
 then
 
@@ -33,5 +29,3 @@ then
 - option for multiple js files in scripts
 - possibly integrate bower.js for library
 - improve boiler index.html
-
-
