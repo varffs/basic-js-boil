@@ -103,6 +103,7 @@ gulp.task('watch', function() {
 
   gulp.watch('src/styles/main.styl', ['styles']);
   gulp.watch('src/scripts/main.js', ['script']);
+  gulp.watch('src/libs/*.js', ['lib']);
   gulp.watch('src/images/*.*', ['images']);
   gulp.watch('src/fonts/*.*', ['fonts']);
   gulp.watch(['./build/*.html'], ['html']);
