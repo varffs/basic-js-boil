@@ -70,8 +70,6 @@ gulp.task('script', function() {
   return gulp.src('src/scripts/main.js')
     .pipe(jshint())
     .on('error', errorNotify)
-    .pipe(jshint.reporter('default'))
-    .on('error', errorNotify)
     .pipe(gulp.dest(destinations.js))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
