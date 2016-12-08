@@ -1,3 +1,5 @@
+# This is now out of date and superseeded by: https://github.com/interglobalvision/globie-static-starter-pack
+
 basic-js-boil
 =============
 
